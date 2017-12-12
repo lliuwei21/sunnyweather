@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ <litepal>
+    <dbname value = "sunny_weather"/>
+    <version  value ="1"/>
+    <list>
+        <mapping class = "com.sunnyweather.android.sql.Province"/>
+        <mapping class = "com.sunnyweather.android.sql.City"/>
+        <mapping class = "com.sunnyweather.android.sql.County"/>
+    </list>
+</litepal>
