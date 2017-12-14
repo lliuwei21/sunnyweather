@@ -7,7 +7,7 @@ package com.sunnyweather.android.gson;
 public class AQI {
     public AQICity city;
     public class AQICity{
-        public String api;
+        public String aqi;
         public String pm25;
     }
 }
