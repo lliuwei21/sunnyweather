@@ -1,6 +1,7 @@
 package com.sunnyweather.android;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.sunnyweather.android.gson.Forecast;
 import com.sunnyweather.android.gson.Weather;
+import com.sunnyweather.android.service.AutoUpdateService;
 import com.sunnyweather.android.tool.HttpUtil;
 import com.sunnyweather.android.tool.Utility;
 
@@ -183,7 +185,10 @@ swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener
         loadBingPic();
     }
 
-
+    /**
+     * 处理并展示weather实体类中的数据
+     * @param weather
+     */
     @SuppressLint("SetTextI18n")
     private void showWeatherInfo(Weather weather) {
         String cityName = weather.basic.cityName;
@@ -218,6 +223,8 @@ swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
 
